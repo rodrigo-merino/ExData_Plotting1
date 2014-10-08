@@ -14,11 +14,11 @@ energydata <- subset(energydata_full, subset=(Date >= "2007-02-01" & Date <= "20
 datetime <- paste(as.Date(energydata$Date), energydata$Time)
 energydata$Datetime <- as.POSIXct(datetime)
 
-# Plot the histogram
+# Plot 2
 
-hist(energydata$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")
+plot(energydata$Global_active_power~energydata$Datetime, type="l", ylab="Global Active Power (kilowatts)", xlab="")
 
 # Save to a file
 
-dev.copy(png, file="plot1.png", height=480, width=480)
+dev.copy(png, file="plot2.png", height=480, width=480)
 dev.off()
